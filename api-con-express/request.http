@@ -1,0 +1,30 @@
+@API = http://localhost:3001/api/v1
+###
+GET {{API}}/products
+
+###
+GET {{API}}/products/0649b7b0-c6b6-442a-8de9-5ec9a61f67c5
+
+###
+
+POST {{API}}/products
+Content-Type: application/json
+
+{
+  "name": "new product",
+  "price": 234,
+  "image": "http://localhost:3001/image"
+}
+
+###
+
+PATCH  {{API}}/products/7a121671-386d-4a48-8314-418a7b5c4689
+Content-Type: application/json
+
+{
+  "name": "new product"
+}
+
+###
+
+DELETE {{API}}/products/2bfd327f-4764-4d81-9ec0-3f169526034b
