@@ -3,7 +3,7 @@
 GET {{API}}/products
 
 ###
-GET {{API}}/products/0649b7b0-c6b6-442a-8de9-5ec9a61f67c5
+GET {{API}}/products/aoeu
 
 ###
 
@@ -11,14 +11,14 @@ POST {{API}}/products
 Content-Type: application/json
 
 {
-  "name": "new product",
-  "price": 234,
-  "image": "http://localhost:3001/image"
+  "name": 23,
+  "price": "eou",
+  "image": "http://localhost:3001/ image"
 }
 
 ###
 
-PATCH  {{API}}/products/7a121671-386d-4a48-8314-418a7b5c4689
+PATCH  {{API}}/products/9f152a06-0754-4425-ae85-a452a835baea
 Content-Type: application/json
 
 {
