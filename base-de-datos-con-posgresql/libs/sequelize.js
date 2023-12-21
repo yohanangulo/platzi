@@ -2,10 +2,8 @@ const { Sequelize } = require('sequelize')
 const { URI } = require('./prostgre.pool')
 const setUpModels = require('../db/models')
 
-const sequelize = new Sequelize(URI, {
-  dialect: 'postgres',
-  logging: sql => console.log(sql),
-})
+const sequelize = new Sequelize(URI, { dialect: 'mysql' })
+// const sequelize = new Sequelize(URI, { dialect: 'postgres' })
 
 setUpModels(sequelize)
 sequelize.sync()

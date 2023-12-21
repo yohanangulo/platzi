@@ -1,2 +1,27 @@
-@API = 
-GET 
+@api = http://localhost:3000/api/v1/
+
+
+GET {{api}}/users
+
+###
+GET  {{api}}/users/5
+
+###
+POST {{api}}/users
+Content-Type: application/json
+
+{
+  "email": "paperina@mail.com",
+  "password": "2394092343" 
+}
+
+###
+PATCH {{api}}/users/2
+Content-Type: application/json
+
+{
+  "email": "testcambio@mail.com"
+}
+
+###
+DELETE {{api}}/users/3
