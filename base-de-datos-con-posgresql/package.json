@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:delete": "sequelize-cli db:migrate:clean:all"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +22,8 @@
     "nodemon": "^2.0.12",
     "pg-hstore": "^2.3.4",
     "prettier": "^2.3.2",
-    "sequelize": "^6.35.1"
+    "sequelize": "^6.35.1",
+    "sequelize-cli": "^6.6.2"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",

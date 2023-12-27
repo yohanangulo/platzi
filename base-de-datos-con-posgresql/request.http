@@ -11,8 +11,9 @@ POST {{api}}/users
 Content-Type: application/json
 
 {
-  "email": "paperina@mail.com",
-  "password": "2394092343" 
+  "email": "yohan@mail.com",
+  "password": "2394092343",
+  "role": "customer"
 }
 
 ###
@@ -25,3 +26,27 @@ Content-Type: application/json
 
 ###
 DELETE {{api}}/users/3
+
+###
+GET {{api}}/products
+
+###
+GET {{api}}/customers
+
+###
+POST {{api}}/customers
+Content-Type: application/json
+
+{
+  "name": "Valentina",
+  "lastName": "Gonzalez",
+  "phone": "04129613339",
+  "user": {
+    "email": "vale@mail.com",
+    "password": "aoeustnha"
+  }
+}
+
+###
+
+DELETE {{api}}/customers/2

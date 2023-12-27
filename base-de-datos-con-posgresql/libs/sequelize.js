@@ -2,10 +2,9 @@ const { Sequelize } = require('sequelize')
 const { URI } = require('./prostgre.pool')
 const setUpModels = require('../db/models')
 
-const sequelize = new Sequelize(URI, { dialect: 'mysql' })
-// const sequelize = new Sequelize(URI, { dialect: 'postgres' })
+const sequelize = new Sequelize(URI, { dialect: 'postgres' })
 
 setUpModels(sequelize)
-sequelize.sync()
+// sequelize.sync()
 
 module.exports = sequelize
