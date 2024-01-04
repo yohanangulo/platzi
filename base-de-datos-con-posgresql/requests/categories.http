@@ -1,0 +1,15 @@
+@api = http://localhost:3000/api/v1/categories
+
+GET {{api}}
+
+###
+GET {{api}}/3
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "name": "Category 2",
+  "image": "https://image.com/300/500"
+}

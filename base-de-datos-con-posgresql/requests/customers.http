@@ -1,0 +1,20 @@
+@api = http://localhost:3000/api/v1/customers
+
+GET {{api}}
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "name": "Valentina",
+  "lastName": "Gonzalez",
+  "phone": "04129613339",
+  "user": {
+    "email": "vale@mail.com",
+    "password": "aoeustnha"
+  }
+}
+
+###
+DELETE {{api}}

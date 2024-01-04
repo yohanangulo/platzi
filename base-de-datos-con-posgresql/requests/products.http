@@ -1,0 +1,18 @@
+@api = http://localhost:3000/api/v1/products
+
+GET {{api}}
+
+###
+GET {{api}}/id
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "name": "producto 13",
+  "price": 1200,
+  "description": "Esta es una camisa 100% nueva",
+  "image": "https://image.com/200/400",
+  "categoryId": 3
+}
