@@ -1,6 +1,7 @@
 const { faker } = require('@faker-js/faker')
 const boom = require('@hapi/boom')
 const { models } = require('../libs/sequelize')
+const { Op } = require('sequelize')
 
 class ProductsService {
   generate() {
@@ -22,14 +23,26 @@ class ProductsService {
     return newProduct
   }
 
-  async find({ limit, offset }) {
+  async find({ limit, offset, price, price_min, price_max }) {
     const options = {
       include: ['category'],
+      where: {},
     }
 
     if (limit && offset) {
       options.limit = limit
       options.offset = offset
+    }
+
+    if (price) {
+      options.where.price = price
+    }
+
+    if (price_min && price_max) {
+      options.where.price = {
+        [Op.gte]: price_min,
+        [Op.lte]: price_max,
+      }
     }
 
     const products = await models.Product.findAll(options)
@@ -38,7 +51,7 @@ class ProductsService {
   }
 
   async findOne(id) {
-    const product = await models.Product.findOne(id)
+    const product = await models.Product.findByPk(id)
 
     if (!product) {
       throw boom.notFound('product not found')
