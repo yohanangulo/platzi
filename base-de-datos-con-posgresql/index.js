@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co']
+const whitelist = ['https://base-de-datos-con-postgres.onrender.com/']
 const options = {
   origin: (origin, callback) => {
     // detele !origin when it's production or use the condition down below
