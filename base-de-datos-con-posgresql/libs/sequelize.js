@@ -2,8 +2,6 @@ const { Sequelize } = require('sequelize')
 const setUpModels = require('../db/models')
 const config = require('../config/config')
 
-console.log('👉👉', config.dbUri[config.env])
-
 const sequelize = new Sequelize(config.dbUri[config.env], { dialect: 'postgres' })
 
 setUpModels(sequelize)

@@ -36,8 +36,6 @@ app.use(boomErrorHandler)
 app.use(ormErrorHandler)
 app.use(errorHandler)
 
-console.log('👉', process.env.NODE_ENV)
-
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log('Listening on por', port, '🚀🚀🚀')
