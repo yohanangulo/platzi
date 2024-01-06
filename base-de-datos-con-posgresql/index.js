@@ -12,6 +12,7 @@ app.use(express.json())
 const whitelist = ['http://localhost:8080', 'https://myapp.co']
 const options = {
   origin: (origin, callback) => {
+    // detele !origin when it's production
     if (whitelist.includes(origin) || !origin) {
       callback(null, true)
     } else {
