@@ -9,6 +9,10 @@ const config = {
   dbHost: process.env.DB_HOST,
   dbName: process.env.DB_NAME,
   dbPort: process.env.DB_PORT,
+  dbUri: {
+    production: process.env.DB_URI,
+    dev: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+  },
 }
 
 module.exports = config
