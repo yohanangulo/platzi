@@ -1,0 +1,9 @@
+@api = {{$dotenv API}}/auth
+
+POST {{api}}/login
+Content-Type: application/json
+
+{
+  "email": "anguloyohan98@gmail.com",
+  "password": "holamundo"
+}
