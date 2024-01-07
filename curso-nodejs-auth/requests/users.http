@@ -11,8 +11,8 @@ POST {{api}}
 Content-Type: application/json
 
 {
-  "email": "yohan@mail.com",
-  "password": "2394092343",
+  "email": "yohanadmin@mail.com",
+  "password": "admin123",
   "role": "customer"
 }
 

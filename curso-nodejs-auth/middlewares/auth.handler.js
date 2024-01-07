@@ -1,13 +1,14 @@
 const boom = require('@hapi/boom')
+const { config } = require('../config/config')
 
-function checkApiKey(req, res, next) {
+function checkApiKey(req, _, next) {
   const apiKey = req.headers['api']
-  if (apiKey === '123') {
+  if (apiKey === config.apiKey) {
     next()
     return
   }
 
-  throw boom.unauthorized()
+  next(boom.unauthorized())
 }
 
 module.exports = checkApiKey
