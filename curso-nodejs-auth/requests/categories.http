@@ -1,0 +1,15 @@
+@api = {{$dotenv API}}/categories
+
+GET {{api}}
+
+###
+GET {{api}}/3
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "name": "Category 2",
+  "image": "https://image.com/300/500"
+}

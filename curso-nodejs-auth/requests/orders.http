@@ -1,0 +1,22 @@
+@api = {{$dotenv API}}/orders
+
+###
+GET {{api}}/1
+
+###
+POST {{api}} 
+Content-Type: application/json
+
+{
+  "customerId": 3
+}
+
+###
+POST {{api}}/add-item 
+Content-Type: application/json
+
+{
+  "orderId": 1,
+  "productId": 1,
+  "amount": 5
+}

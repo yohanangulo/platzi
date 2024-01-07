@@ -1,0 +1,30 @@
+@api = {{$dotenv API}}/users
+
+
+GET {{api}}
+
+###
+GET  {{api}}/5
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "email": "yohan@mail.com",
+  "password": "2394092343",
+  "role": "customer"
+}
+
+###
+PATCH {{api}}/2
+Content-Type: application/json
+
+{
+  "email": "testcambio@mail.com"
+}
+
+###
+DELETE {{api}}/3
+
+
