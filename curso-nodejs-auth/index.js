@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co']
+const whitelist = ['http://localhost:8080', 'https://myapp.com']
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
@@ -20,6 +20,7 @@ const options = {
     }
   },
 }
+
 app.use(cors(options))
 require('./utils/auth/index')
 
