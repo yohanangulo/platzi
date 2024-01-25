@@ -7,12 +7,12 @@ POST {{api}}
 Content-Type: application/json
 
 {
-  "name": "Valentina",
-  "lastName": "Gonzalez",
+  "name": "Yohan",
+  "lastName": "Angulo",
   "phone": "04129613339",
   "user": {
-    "email": "valentin@mail.com",
-    "password": "aoeustnha"
+    "email": "yohanangulo@mail.com",
+    "password": "26678741"
   }
 }
 

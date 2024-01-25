@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 
 const service = new UserService()
 
-const localStrategy = new Strategy(
+const LocalStrategy = new Strategy(
   {
     usernameField: 'email',
   },
@@ -31,4 +31,4 @@ const localStrategy = new Strategy(
   },
 )
 
-module.exports = localStrategy
+module.exports = LocalStrategy

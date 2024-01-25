@@ -14,6 +14,7 @@ router.post('/login', passport.authenticate('local', { session: false }), async 
       role: user.role,
     }
 
+    // const token = jwt.sign(payload, config.jwtSecret, { expiresIn: 60 })
     const token = jwt.sign(payload, config.jwtSecret)
     res.send({ user, token })
   } catch (e) {

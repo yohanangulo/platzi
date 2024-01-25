@@ -1,0 +1,6 @@
+@api = {{$dotenv API}}/profile
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MDYxMDIxNTN9.Z5fg9JFOcV6Qg51lsD0qcTq9RZN76shXkq2nsSulzVI
+
+###
+GET {{api}}/my-orders
+Authorization: Bearer {{token}}

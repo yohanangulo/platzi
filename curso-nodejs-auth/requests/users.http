@@ -17,11 +17,11 @@ Content-Type: application/json
 }
 
 ###
-PATCH {{api}}/2
+PATCH {{api}}/9
 Content-Type: application/json
 
 {
-  "email": "testcambio@mail.com"
+  "role": "admin"
 }
 
 ###

@@ -10,11 +10,11 @@ POST {{api}}
 Content-Type: application/json
 
 {
-  "name": "producto 13",
+  "name": "franela",
   "price": 20,
   "description": "Esta es una camisa 100% nueva",
   "image": "https://image.com/200/400",
-  "categoryId": 3
+  "categoryId": 1
 }
 
 ###

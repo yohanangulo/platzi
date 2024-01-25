@@ -1,6 +1,8 @@
 @api = {{$dotenv API}}/categories
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MDYxOTExMzYsImV4cCI6MTcwNjE5MTE5Nn0.rhvsD2g-7p1LTNjQf6ygl5vJVxJxWu9zFAIdLFXTT9s
 
 GET {{api}}
+Authorization: Bearer {{token}}
 
 ###
 GET {{api}}/3
@@ -8,12 +10,13 @@ GET {{api}}/3
 ###
 POST {{api}}
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjksInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTcwNjAxMTY2NX0.LW0XOTpFhAF0EVj0LsFaAZheyyM25umyB38H6cqOq7w
+Authorization: Bearer {{token}}
 
 {
-  "name": "Category 3",
+  "name": "Category 5",
   "image": "https://image.com/300/500"
 }
 
 ###
-DELETE {{api}}/3
+DELETE {{api}}/5
+Authorization: Bearer {{token}}

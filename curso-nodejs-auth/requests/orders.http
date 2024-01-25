@@ -8,7 +8,7 @@ POST {{api}}
 Content-Type: application/json
 
 {
-  "customerId": 3
+  "customerId": 6
 }
 
 ###
@@ -16,7 +16,7 @@ POST {{api}}/add-item
 Content-Type: application/json
 
 {
-  "orderId": 1,
-  "productId": 1,
-  "amount": 5
+  "orderId": 2,
+  "productId": 2,
+  "amount": 10
 }
