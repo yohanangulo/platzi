@@ -7,3 +7,11 @@ Content-Type: application/json
   "email": "yohanangulo@mail.com",
   "password": "26678741"
 }
+
+###
+POST {{api}}/recovery
+Content-Type: application/json
+
+{
+  "email": "anguloyohan98@gmail.com"
+}
