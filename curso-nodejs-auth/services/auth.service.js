@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 const { config } = require('../config/config')
 
-const service = new UserService()
+const userService = new UserService()
 
 class AuthService {
   async getUser(email, password) {
-    const user = await service.findByEmail(email)
+    const user = await userService.findByEmail(email)
 
     if (!user) {
       throw boom.unauthorized()
@@ -40,22 +40,35 @@ class AuthService {
     }
   }
 
-  async resetPassword(email) {
-    const user = await service.findByEmail(email)
+  async sendRecovery(email) {
+    const user = await userService.findByEmail(email)
 
     if (!user) {
       throw boom.unauthorized()
     }
 
+    const payload = {
+      sub: user.id,
+    }
+
+    const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '15min' })
+
+    const link = `http://myfrontend.com/recovery?token=${token}`
+
+    await userService.update(user.id, {
+      recoveryToken: token,
+    })
+
     const mail = {
       from: config.mailFromAddress,
       to: `${user.email}`,
-      subject: 'Hello ✔✔✔',
-      text: `hola ${user.email}`,
-      html: '<b>Hello world?</b>',
+      subject: 'Email para receperar contraseña',
+      html: `<b>Ingrsesa al siguiente link para reestablecer tu contraseña: ${link}</b>`,
     }
 
-    await this.sendEmail(mail)
+    const rta = await this.sendEmail(mail)
+
+    return rta
   }
 
   async sendEmail(mailContent) {
