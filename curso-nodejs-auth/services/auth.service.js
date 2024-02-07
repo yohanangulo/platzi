@@ -22,6 +22,8 @@ class AuthService {
     }
 
     delete user.dataValues.password
+    delete user.dataValues.recoveryToken
+
     return user
   }
 
@@ -69,6 +71,28 @@ class AuthService {
     const rta = await this.sendEmail(mail)
 
     return rta
+  }
+
+  async changePassword(token, newPassword) {
+    try {
+      const payload = jwt.verify(token, config.jwtSecret)
+      const user = await userService.findOne(payload.sub)
+
+      if (user.recoveryToken !== token) {
+        throw boom.unauthorized()
+      }
+
+      const hash = await bcrypt.hash(newPassword, 10)
+
+      await userService.update(user.id, {
+        recoveryToken: null,
+        password: hash,
+      })
+
+      return { message: 'Password changed' }
+    } catch (e) {
+      throw boom.unauthorized()
+    }
   }
 
   async sendEmail(mailContent) {

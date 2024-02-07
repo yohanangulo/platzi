@@ -27,4 +27,18 @@ router.post('/login', passport.authenticate('local', { session: false }), async 
   }
 })
 
+router.post(
+  '/change-password',
+  // validation layer
+  async (req, res, next) => {
+    try {
+      const { token, password } = req.body
+      const rta = await authService.changePassword(token, password)
+      res.json(rta)
+    } catch (e) {
+      next(e)
+    }
+  },
+)
+
 module.exports = router
