@@ -1,0 +1,4 @@
+@api = {{$dotenv APP_URL}}
+
+GET {{api}}
+Authorization: "oeuaoeu"
