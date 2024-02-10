@@ -1,0 +1,26 @@
+@api = {{$dotenv APP_URL}}/message
+
+GET {{api}}
+
+###
+GET {{api}}?user=Yohan
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "user": "Jose",
+  "message": "hola!"
+}
+
+###
+PATCH {{api}}/65c760c683f0c6a5ce043c75
+Content-Type: application/json
+
+{
+  "message": "mensaje actualizado"
+}
+
+###
+DELETE {{api}}/64ee999b4aed60b3cd6aa2cb

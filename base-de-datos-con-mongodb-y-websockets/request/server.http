@@ -1,4 +1,7 @@
-@api = {{$dotenv APP_URL}}
+@api = {{$dotenv APP_URL}}/message
 
 GET {{api}}
 Authorization: "oeuaoeu"
+
+###
+POST {{api}}?error=ok
