@@ -1,20 +1,27 @@
 const store = require('./message.store')
+const config = require('../../../config/config')
 
 class Controller {
-  async addMessage(user, message) {
-    if (!user || !message) {
+  async addMessage(chat, user, message, file) {
+    let fileUrl
+
+    if (!user || !message || !chat) {
       throw new Error('los datos no son validos')
     }
 
+    if (file) {
+      fileUrl = `${config.appUrl}/app/uploads/files/${file.filename}`
+    }
+
     const fullMessage = {
+      chat,
       user,
       message,
       date: new Date(),
+      file: fileUrl,
     }
 
-    store.add(fullMessage)
-
-    return fullMessage
+    return store.add(fullMessage)
   }
 
   async getMessages(filterUser) {

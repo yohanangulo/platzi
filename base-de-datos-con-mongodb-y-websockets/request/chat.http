@@ -1,0 +1,11 @@
+@url = http://localhost:3000/chat
+
+GET {{url}}
+
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+  "users": ["65c8d9ce737f44c606695fb8", "65c8df81649c48432b99bb26"] 
+}

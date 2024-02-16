@@ -2,12 +2,20 @@ const express = require('express')
 const router = express.Router()
 const response = require('../../network/response')
 const controller = require('./message.controller')
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+  destination: './public/uploads/files/',
+  filename: (_, file, cb) => cb(null, `${Date.now()}-${file.originalname.replace(' ', '-')}`),
+})
+
+const upload = multer({ storage: storage })
 
 router.get('/', async (req, res) => {
   try {
-    const { user = null } = req.query
+    const { chat = null } = req.query
 
-    const messages = await controller.getMessages(user)
+    const messages = await controller.getMessages(chat)
 
     response.success(req, res, messages)
   } catch (error) {
@@ -15,11 +23,12 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('file'), async (req, res) => {
   try {
-    const { user, message } = req.body
+    const { file } = req
+    const { user, message, chat } = req.body
 
-    const rta = await controller.addMessage(user, message)
+    const rta = await controller.addMessage(chat, user, message, file)
     response.success(req, res, rta)
   } catch (error) {
     response.error(req, res, 'algo salio mal', 401, 'detalles')

@@ -9,21 +9,23 @@ class Store {
     }
   }
 
+  /**
+   *
+   * @param {{name: string}} message
+   */
   add(message) {
     const myMessage = new MessageModel(message)
-    myMessage.save()
+    return myMessage.save()
   }
 
   async list(filterUser) {
     let filter = {}
 
     if (filterUser) {
-      filter.user = filterUser
+      filter.chat = filterUser
     }
 
-    const messages = await MessageModel.find(filter)
-
-    return messages
+    return await MessageModel.find(filter).populate('user').exec()
   }
 
   async updateMessage(id, message) {

@@ -1,13 +1,17 @@
 const store = require('./user.store')
 
 class Controller {
-  async createUser(name) {
+  createUser(name) {
     if (!name) {
       throw new Error('invalid name')
     }
 
     const user = { name }
-    return await store.add(user)
+    return store.add(user)
+  }
+
+  getUsers() {
+    return store.list()
   }
 }
 

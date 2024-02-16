@@ -1,9 +1,13 @@
 const UserModel = require('./user.model')
 
 class Store {
-  async add(user) {
+  add(user) {
     const newUser = new UserModel(user)
-    return await newUser.save()
+    return newUser.save()
+  }
+
+  list() {
+    return UserModel.find()
   }
 }
 
