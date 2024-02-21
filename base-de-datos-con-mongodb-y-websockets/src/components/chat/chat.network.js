@@ -13,9 +13,9 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.get('/', async (req, res) => {
+router.get('/:userId', async (req, res) => {
   try {
-    const { userId = null } = req.query
+    const { userId = null } = req.params
 
     const chatList = await controller.listChats(userId)
     response.success(req, res, chatList)

@@ -1,6 +1,6 @@
 @url = http://localhost:3000/chat
 
-GET {{url}}
+GET {{url}}/65c8d9f2737f44c606695fbc
 
 ###
 POST {{url}}

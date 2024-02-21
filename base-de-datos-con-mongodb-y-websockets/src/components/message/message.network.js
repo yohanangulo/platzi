@@ -23,15 +23,16 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', upload.single('file'), async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const { file } = req
+    // const { file = null } = req
     const { user, message, chat } = req.body
+    console.log('👉🏻', user, message, chat)
 
-    const rta = await controller.addMessage(chat, user, message, file)
+    const rta = await controller.addMessage(chat, user, message, null)
     response.success(req, res, rta)
   } catch (error) {
-    response.error(req, res, 'algo salio mal', 401, 'detalles')
+    response.error(req, res, 'algo salio mal', 401, error)
   }
 })
 

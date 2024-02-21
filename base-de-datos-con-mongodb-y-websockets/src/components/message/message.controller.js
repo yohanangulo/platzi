@@ -1,9 +1,12 @@
 const store = require('./message.store')
 const config = require('../../../config/config')
+const socket = require('../../socket').socket
 
 class Controller {
   async addMessage(chat, user, message, file) {
     let fileUrl
+
+    console.log(user, message, chat)
 
     if (!user || !message || !chat) {
       throw new Error('los datos no son validos')
@@ -11,6 +14,8 @@ class Controller {
 
     if (file) {
       fileUrl = `${config.appUrl}/app/uploads/files/${file.filename}`
+    } else {
+      fileUrl = 'o'
     }
 
     const fullMessage = {
@@ -21,10 +26,13 @@ class Controller {
       file: fileUrl,
     }
 
-    return store.add(fullMessage)
+    const storedMessage = store.add(fullMessage)
+    socket.io.emit('message', fullMessage)
+
+    return storedMessage
   }
 
-  async getMessages(filterUser) {
+  getMessages(filterUser) {
     return store.list(filterUser)
   }
 

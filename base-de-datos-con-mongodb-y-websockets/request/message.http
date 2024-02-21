@@ -1,19 +1,15 @@
 @api = {{$dotenv APP_URL}}/message
 
-GET {{api}}?chat=65c8df8b649c48432b99bb28
-
-###
-GET {{api}}?user=Yohan
+GET {{api}}
 
 ###
 POST {{api}}
-Content-Type: multipart/form-data
+Content-Type: application/json
 
 {
   "user": "65c8d9ce737f44c606695fb8",
-  "message": "Yohan para Maria",
-  "chat": "65c8df8b649c48432b99bb28",
-  "file": ""
+  "message": "si de Yohan para Maria",
+  "chat": "65c8d9f2737f44c606695fbc"
 }
 
 ###

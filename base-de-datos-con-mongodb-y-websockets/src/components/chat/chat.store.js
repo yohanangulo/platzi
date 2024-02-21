@@ -12,7 +12,7 @@ class Store {
     const filter = {}
 
     if (filterUser) {
-      filter.user = filterUser
+      filter.users = filterUser
     }
 
     return ChatModel.find(filter).populate('users').exec()
