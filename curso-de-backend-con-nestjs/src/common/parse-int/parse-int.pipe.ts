@@ -1,19 +1,16 @@
-import {
-  ArgumentMetadata,
-  BadRequestException,
-  Injectable,
-  PipeTransform,
-} from '@nestjs/common'
+import { BadRequestException, Injectable, PipeTransform } from '@nestjs/common'
 
 @Injectable()
 export class ParseIntPipe implements PipeTransform {
-  transform(value: string, metadata: ArgumentMetadata) {
+  transform(value: string) {
     const val = parseInt(value, 10)
+    console.log(isNaN(val))
+    console.log(val)
 
     if (isNaN(val)) {
       throw new BadRequestException(`${value} is not an integer`)
     }
 
-    return value
+    return val
   }
 }

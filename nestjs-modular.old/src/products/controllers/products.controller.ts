@@ -1,7 +1,7 @@
 import {
   Controller,
   Get,
-  Query,
+  // Query,
   Param,
   Post,
   Body,
@@ -9,26 +9,22 @@ import {
   Delete,
   HttpStatus,
   HttpCode,
-  Res,
+  // Res,
   // ParseIntPipe,
 } from '@nestjs/common';
 
-import { Response } from 'express';
-import { ParseIntPipe } from '../common/parse-int.pipe';
-import { CreateProductDto, UpdateProductDto } from './../dtos/products.dtos';
+// import { Response } from 'express';
+import { ParseIntPipe } from '../../common/parse-int.pipe';
+import { CreateProductDto, UpdateProductDto } from '../dtos/products.dtos';
 
-import { ProductsService } from './../services/products.service';
+import { ProductsService } from '../services/products.service';
 
 @Controller('products')
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
   @Get()
-  getProducts(
-    @Query('limit') limit = 100,
-    @Query('offset') offset = 0,
-    @Query('brand') brand: string,
-  ) {
+  getProducts() { // @Query('brand') brand: string, // @Query('offset') offset = 0, // @Query('limit') limit = 100,
     // return {
     //   message: `products limit=> ${limit} offset=> ${offset} brand=> ${brand}`,
     // };

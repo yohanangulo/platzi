@@ -5,13 +5,16 @@ import {
   Param,
   Post,
   Put,
-  Query,
   Delete,
   HttpStatus,
   HttpCode,
-  ParseIntPipe,
+  ValidationPipe,
+  // ParseIntPipe,
 } from '@nestjs/common'
 import { ProductsService } from './products.service'
+import { ParseIntPipe } from 'src/common/parse-int/parse-int.pipe'
+import { CreateProductDto } from './dtos/create-product.dto'
+import { UpdateProductDto } from './dtos/update-product.dto'
 
 @Controller('products')
 export class ProductsController {
@@ -26,7 +29,7 @@ export class ProductsController {
 
   @Get(':id')
   @HttpCode(HttpStatus.ACCEPTED)
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: string) {
     // return {
     //   message: `product ${id}`,
     // }
@@ -34,7 +37,7 @@ export class ProductsController {
   }
 
   @Post()
-  create(@Body() payload: any) {
+  create(@Body() payload: CreateProductDto) {
     // return {
     //   message: 'create action',
     //   payload,
@@ -43,7 +46,10 @@ export class ProductsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() payload: any) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateProductDto,
+  ) {
     // return {
     //   message: `updating ${productId}`,
     //   body: payload,

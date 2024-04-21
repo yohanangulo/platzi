@@ -21,5 +21,5 @@ app.use('/app', express.static('./public'))
 //
 ;(async () => {
   await connectDB()
-  server.listen(3000, () => console.log('🚀 Server on', config.appUrl, config.env))
+  server.listen(config.port, () => console.log('🚀 Server on', config.appUrl, config.env))
 })()

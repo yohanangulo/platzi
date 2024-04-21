@@ -7,7 +7,7 @@ interface IProduct {
   imageUrl: string
 }
 
-class Product {
+export class Product {
   constructor({ id, name, description, imageUrl, price, stock }: IProduct) {
     this.id = id
     this.name = name
